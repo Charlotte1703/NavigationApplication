@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton navIcon = findViewById(R.id.navIconButton);
+        final FloatingActionButton navIcon = findViewById(R.id.navIconButton);
         final FloatingActionButton leftButton = findViewById(R.id.leftArrow);
         final FloatingActionButton rightButton = findViewById(R.id.rightArrow);
         final FloatingActionButton eyeglassButton = findViewById(R.id.eyeglassIcon);
@@ -31,6 +31,17 @@ public class MainActivity extends AppCompatActivity {
                     rightButton.show();
                     eyeglassButton.show();
                 }
+            }
+        });
+
+        eyeglassButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View e) {
+                leftButton.hide();
+                rightButton.hide();
+                eyeglassButton.hide();
+                navIcon.show();
+                return true;
             }
         });
     }
